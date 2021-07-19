@@ -13,45 +13,77 @@ A very simple boilerplate to have fun with TDD and experiments
 
 :arrow_right: **Note**: you could run the commands with `npm` or `make` with docker-compose. _Make_ raises the container with docker-compose, executes the task and removes the container.
 
-### Main scripts
 
-:arrow_right: **Obvious Note**: require to install dependencies
-```shell
-npm i
+
+## Installation
+
+```bash
+$ npm i
 or
-make install
+$ make install
 ```
 
-- **execute all tests files once** 
-```shell
-npm run test
+## Running the app
+
+```bash
+# development
+$ npm run start
 or
-make test
+$ make start
+
+# watch mode
+$ npm run start:dev
+or
+$ make start-dev
+
+# production mode
+$ npm run start:prod
+or
+$ make start-prod
 ```
 
-- **execute all tests files** (_impacted by changes_) **in watch mode** (a.k.a. on save) 
-```shell
-npm run test:watch
+## Test
+
+```bash
+# unit tests
+$ npm run test
 or
-make test-watch
+$ make test
+
+# e2e tests
+$ npm run test:e2e
+or
+$ make test-e2e
+
+# test coverage
+$ npm run test:cov
+or
+$ make test-cov
+
+# test in watch mode
+$ npm run test:watch
+or
+$ make test-watch
 ```
 
-### Linter
+## Linter
 
-- Eslint uses mainly the `standard` and `recommended` set of rules, with few personnal preferences, feel free to change it in : `.eslintrc.json` to be confortable.
-
-- **execute eslint check** 
-```shell
-npm run eslint:check
+```bash
+# execute eslint fix
+$ npm run lint
 or
-make eslint-check
+$ make lint
 ```
 
-- **execute eslint fix** 
-```shell
-npm run eslint:fix
-or
-make eslint-fix
-```
+- Eslint uses mainly the `standard` and `recommended` set of rules, with few personal preferences, feel free to change it in : `.eslintrc.json` to be confortable.
 
 :warning: **Warning**: If you execute the command `make test-watch` make sure to exit with the `q` and not with `Ctrl C`, otherwise the docker container will not be destroyed.
+
+## Stay in touch
+
+- Author - [@Mysh3ll](https://github.com/Mysh3ll/)
+- LinkedIn - [@Michel Pompas](https://www.linkedin.com/in/michel-pompas)
+
+## License
+
+Nest is [MIT licensed](LICENSE).
