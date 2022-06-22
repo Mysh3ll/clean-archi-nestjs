@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
       context: .
       target: development
-    container_name: "tdd_nestjs_api_jest"
+    container_name: "clean_archi_nestjs_api"
     restart: always
     working_dir: "/usr/src/app"
     volumes:
@@ -15,26 +15,26 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgres://mysh3ll:toor@postgres:5432/db
+      DATABASE_URL: postgres://mysh3ll:toor@postgres:5432/clean_archi_nestjs
       NODE_ENV: development
       PORT: 3000
     ports:
-      - 8080:3000
+      - "8080:3000"
       # Debugging port
-      - 9229:9229
+      - "9229:9229"
     networks:
       - dev
 
   postgres:
     image: postgres:13.3
-    container_name: "tdd_nestjs_api_postgres"
+    container_name: "clean_archi_nestjs_postgres"
     restart: always
     environment:
       POSTGRES_USER: mysh3ll
       POSTGRES_PASSWORD: toor
-      POSTGRES_DB: db
+      POSTGRES_DB: clean_archi_nestjs
     ports:
-      - 35000:5432
+      - "35000:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -42,7 +42,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4:5.5
-    container_name: "tdd_nestjs_api_pgadmin"
+    container_name: "clean_archi_nestjs_pgadmin"
     restart: always
     depends_on:
       - postgres
@@ -50,7 +50,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: mysh3ll@admin.fr
       PGADMIN_DEFAULT_PASSWORD: toor
     ports:
-      - 5050:80
+      - "5050:80"
     volumes:
       - my-data:/var/lib/pgadmin
     networks:
