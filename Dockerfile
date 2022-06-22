@@ -7,13 +7,13 @@ WORKDIR /usr/src/app
 # Add Git to the container
 RUN apk --no-cache add git
 
-# Copy the package.jons from host to container
+# Copy the package.json from host to container
 COPY package*.json ./
 
 # Install all the dependencies
 RUN npm install
 
-# Bundle app source / cpy all other files
+# Bundle app source / copy all other files
 COPY . .
 
 # Build the app to the /dist folder
