@@ -1,6 +1,6 @@
-# Mysh3ll's Clean architecture/TDD sandbox for NestJs
+# Mysh3ll's Clean architecture sandbox for NestJs
 
-A very simple boilerplate to have fun with Clean architecture and TDD and experiments
+A very simple boilerplate to have fun with Clean architecture and experiments
 
 ### Requirements
 
