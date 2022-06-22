@@ -21,17 +21,17 @@ export class AuthorUseCase {
   }
 
   async getAllAuthors(): Promise<Author[]> {
-    return this.#dataServices.authors.getAll();
+    return await this.#dataServices.authors.getAll();
   }
 
   async getAuthorById(id: string): Promise<Author> {
-    return this.#dataServices.authors.getById(id);
+    return await this.#dataServices.authors.getById(id);
   }
 
   async createAuthor(createAuthorDto: CreateAuthorDto): Promise<Author> {
     const newAuthor =
       this.#authorFactoryService.createNewAuthor(createAuthorDto);
-    return this.#dataServices.authors.create(newAuthor);
+    return await this.#dataServices.authors.create(newAuthor);
   }
 
   async updateAuthor(
@@ -39,6 +39,6 @@ export class AuthorUseCase {
     updateAuthorDto: UpdateAuthorDto,
   ): Promise<Author> {
     const author = this.#authorFactoryService.updateAuthor(updateAuthorDto);
-    return this.#dataServices.authors.update(id, author);
+    return await this.#dataServices.authors.update(id, author);
   }
 }
