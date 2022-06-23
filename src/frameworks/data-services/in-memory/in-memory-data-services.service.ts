@@ -12,5 +12,6 @@ export class InMemoryDataServices
 
   onApplicationBootstrap() {
     this.authors = new InMemoryGenericRepository<Author>([]);
+    this.genres = new InMemoryGenericRepository<Genre>([]);
   }
 }
