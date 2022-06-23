@@ -39,6 +39,14 @@ export class InMemoryGenericRepository<T> implements GenericRepository<T> {
       );
     }
 
+    if (isArrayOf(isInstanceOf(Book))(this.model)) {
+      return Promise.resolve(
+        this.model.find((book) =>
+          book instanceof Book ? book.title === id : null,
+        ) as unknown as T,
+      );
+    }
+
     return Promise.reject('Invalid model type');
   }
 
@@ -54,6 +62,9 @@ export class InMemoryGenericRepository<T> implements GenericRepository<T> {
       }
       if (entity instanceof Genre) {
         return entity.name === id;
+      }
+      if (entity instanceof Book) {
+        return entity.title === id;
       }
       return false;
     });
